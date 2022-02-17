@@ -315,6 +315,9 @@ jobs:
           name: k0s-amd64
           path: ./k0s-arm
 
+      - name: ls
+        run: ls -la
+
       - name: Build image and push to Docker Hub and GitHub image registry
         uses: docker/build-push-action@v2
         with:
