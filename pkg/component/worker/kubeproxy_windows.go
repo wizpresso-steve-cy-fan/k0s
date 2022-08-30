@@ -41,7 +41,7 @@ func (k KubeProxy) Init(_ context.Context) error {
 	return assets.Stage(k.K0sVars.BinDir, "kube-proxy.exe", constant.BinDirMode)
 }
 
-func (k KubeProxy) Start(ctx context.Context) error {
+func (k KubeProxy) Run(ctx context.Context) error {
 	node, err := getNodeName(ctx)
 	if err != nil {
 		return fmt.Errorf("can't get hostname: %v", err)
@@ -76,4 +76,8 @@ func (k KubeProxy) Start(ctx context.Context) error {
 
 func (k KubeProxy) Stop() error {
 	return k.supervisor.Stop()
+}
+
+func (k KubeProxy) Healthy() error {
+	return nil
 }

@@ -97,11 +97,15 @@ func (c CalicoInstaller) SaveKubeConfig(path string) error {
 	return posh.execute(fmt.Sprintf("C:\\bootstrap.ps1 -ServiceCidr \"%s\" -DNSServerIPs \"%s\"", c.CIDRRange, c.ClusterDNS))
 }
 
-func (c CalicoInstaller) Start(_ context.Context) error {
+func (c CalicoInstaller) Run(_ context.Context) error {
 	return nil
 }
 
 func (c CalicoInstaller) Stop() error {
+	return nil
+}
+
+func (c CalicoInstaller) Healthy() error {
 	return nil
 }
 
